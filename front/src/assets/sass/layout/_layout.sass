@@ -1,0 +1,143 @@
+/* ----- Page structure ---------------- */
+*
+  box-sizing: border-box
+  padding: 0
+  margin: 0
+
+html
+  height: 100%
+
+body
+  min-height: 100%
+
+  &.body_sendscreen
+    &:before
+      content: 'Sending to my friends ...'
+      overflow: hidden
+      position: fixed
+      left: 0
+      top: 0
+      width: 100%
+      height: 100%
+      text-align: center
+      font-weight: 700
+      font-size: 24px
+      line-height: 120px
+      color: #000
+      z-index: 50
+      background-color: rgba(255, 255, 255, 0.85)
+      background-image: url('../img/dcat.gif')
+      background-repeat: no-repeat
+      background-position: 100% 50%
+      background-size: 160px auto
+
+.overlay
+  &:before
+    content: ''
+    position: fixed
+    left: 0
+    top: 0
+    width: 100%
+    height: 100%
+    background-color: rgba(0, 0, 0, 0.4)
+    z-index: 100
+
+.color_base
+  background-color: rgba(74, 199, 118, 1)
+  color: rgba(240, 240, 240, 1)
+
+  &:hover
+    background-color: rgba(74, 199, 118, 0.85)
+
+main.container
+  padding-bottom: 140px
+  padding-top: 20px
+
+.logo
+  text-align: center
+  margin-bottom: 15px
+
+  a
+    max-width: 90px
+    display: inline-block
+    vertical-align: top
+    outline: none
+
+    img
+      vertical-align: top
+
+.container
+  max-width: 600px
+  margin-left: auto
+  margin-right: auto
+  padding: 0 20px
+
+// .notice
+//   position: fixed
+//   left: 20px
+//   right: 20px
+//   bottom: 20px
+//   text-align: center
+//   color: #000
+//   padding: 15px 10px
+//   border-radius: 3px
+//   background-color: #000
+//   z-index: 60
+//   font-size: 16px
+//   line-height: 24px
+//   animation-name: fadeInDown
+//   animation-duration: 0.3s
+//   animation-fill-mode: both
+
+//   span
+//     display: block
+//     font-size: 14px
+//     line-height: 20px
+//     margin-top: 5px
+//     color: rgba(0, 0, 0, 0.6)
+
+//   &.success
+//     background-color: rgba(250, 182, 87, 1)
+
+// @keyframes fadeInDown
+//   from
+//     opacity: 0
+//     transform: translate3d(0, -20%, 0)
+
+//   to
+//     opacity: 1
+//     transform: translate3d(0, 0, 0)
+
+// @media only screen and (min-width: 740px)
+//   body.body_sendscreen:before
+//     background-size: 240px auto
+
+//   .logo
+//     margin-bottom: 20px
+
+//     a
+//       max-width: 120px
+
+//   .notice
+//     left: 50%
+//     width: 560px
+//     margin-left: -280px
+
+// @media only screen and (min-width: 1200px)
+//   body.body_sendscreen:before
+//     background-size: 300px auto
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
