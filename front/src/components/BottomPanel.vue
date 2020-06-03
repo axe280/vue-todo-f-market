@@ -11,21 +11,72 @@
       <button
         type="button"
         class="send-button color_base"
+        @click="sendData"
+        :disabled="sending"
       >
-        Update list
+        {{ sending ? 'Sending...' : 'Update list' }}
       </button>
     </div>
   </div>
 </template>
 
 <script>
-import { mapMutations } from "vuex"
+import { mapGetters, mapMutations, mapActions } from "vuex"
 
 export default {
   name: 'BottomPanel',
 
+  data() {
+    return {
+      sending: false
+    }
+  },
+
+  computed: {
+    ...mapGetters(['getProdLIst'])
+  },
+
   methods: {
-    ...mapMutations(['editList'])
+    ...mapActions(['addNotificationTiming']),
+    ...mapMutations([
+        'editList',
+        'clearSearchText'
+      ]),
+
+    async sendData() {
+      this.sending = true
+
+      try {
+
+        const response = await fetch('http://localhost:3000/api/products', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json;charset=utf-8'
+          },
+          body: JSON.stringify(this.getProdLIst)
+        })
+
+        const message = await response.text()
+
+        this.editList(false)
+        this.clearSearchText()
+
+        this.addNotificationTiming({
+          status: 'success',
+          message
+        })
+
+      } catch {
+
+        this.addNotificationTiming({
+          status: 'error',
+          message: `Products hasn't been sent`
+        })
+
+      }
+
+      this.sending = false
+    }
   },
 }
 </script>

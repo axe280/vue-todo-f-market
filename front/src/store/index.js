@@ -6,33 +6,12 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    prodList: [],
+    notifications: [],
     searchText: '',
     isListEdit: false,
     isOverlay: false,
     itemTitleChanged: false,
-    prodList: [
-      {
-        title: "uoeunht",
-        id: idGenerate(),
-        checked: true
-      },
-      {
-        title: "come",
-        id: idGenerate(),
-        checked: false
-      },
-      {
-        title: "newitem",
-        id: idGenerate(),
-        checked: true
-      },
-      {
-        title: "wow",
-        id: idGenerate(),
-        checked: false
-      }
-    ],
-    notifications: []
   },
   getters: {
     getSearchText: state => state.searchText,
@@ -40,7 +19,8 @@ export default new Vuex.Store({
     isOverlay: state => state.isOverlay,
     isItemTitleChanged: state => state.itemTitleChanged,
     getNotifications: state => state.notifications,
-    getProdList(state) {
+    getProdLIst: state => state.prodList,
+    getSortProdList(state) {
       return state.prodList.sort((a, b) => {
         return a.checked - b.checked
       })
@@ -48,6 +28,10 @@ export default new Vuex.Store({
   },
 
   mutations: {
+    addProducts(state, payload) {
+      state.prodList = payload
+    },
+
     showOverlay(state, payload) {
       state.isOverlay = payload
     },
@@ -162,7 +146,7 @@ export default new Vuex.Store({
       commit('addNotification', payload)
       setTimeout(() => {
         commit('removeLastNotification')
-      }, 2000);
+      }, 2000)
     }
   },
 })

@@ -19,10 +19,6 @@ export default {
 
   computed: {
     ...mapGetters(['getNotifications'])
-  },
-
-  // methods: {
-  //   ...mapMutations(['editList'])
-  // },
+  }
 }
 </script>

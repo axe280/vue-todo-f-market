@@ -1,29 +1,41 @@
 <template>
-  <ul 
-    class="prod-list"
-    :class="{'edit-list-active': isListEdit}"
-  >
-    <prod-item
-      v-for="item in filterSearch"
-      :key="item.id"
-      :item="item"
-    ></prod-item>
-  </ul>
+  <div class="prod-list-wrapper">
+    <loader v-if="loading"></loader>
+    
+    <ul 
+      class="prod-list"
+      :class="{'edit-list-active': isListEdit}"
+    >
+      <prod-item
+        v-for="item in filterSearch"
+        :key="item.id"
+        :item="item"
+      ></prod-item>
+    </ul>
+  </div>
 </template>
 
 <script>
-import { mapGetters } from "vuex"
+import { mapGetters, mapMutations, mapActions } from "vuex"
 import ProdItem from './ProdItem.vue'
+import Loader from './Loader.vue'
 
 export default {
   name: 'ProdList',
   components: {
-    ProdItem
+    ProdItem,
+    Loader
+  },
+
+  data() {
+    return {
+      loading: false
+    }
   },
 
   computed: {
     ...mapGetters([
-      'getProdList',
+      'getSortProdList',
       'getSearchText',
       'isListEdit'
     ]),
@@ -32,14 +44,44 @@ export default {
       const searchStr = this.getSearchText
 
       if (searchStr === '') {
-        return this.getProdList
+        return this.getSortProdList
       } else {
-        return this.getProdList.filter(item => {
+        return this.getSortProdList.filter(item => {
           const stringPosition = item.title.search(searchStr)
           return stringPosition !== -1
         })
       }
     }
+  },
+
+  methods: {
+    ...mapMutations(['addProducts']),
+    ...mapActions(['addNotificationTiming']),
+
+    test(list) {
+      console.log(list);
+    }
+  },
+
+  async mounted() {
+    this.loading = true
+
+    try {
+
+      const data = await fetch('http://localhost:3000/api/products')
+      const prodList = await data.json()
+      this.addProducts(prodList)
+
+    } catch {
+
+      this.addNotificationTiming({
+        status: 'error',
+        message: `Products list hasn't been downloaded`
+      })
+
+    }
+    
+    this.loading = false
   }
 }
 </script>
