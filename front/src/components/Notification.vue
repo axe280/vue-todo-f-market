@@ -7,6 +7,7 @@
       :class="item.status"
     >
       {{ item.message }}
+      <span class="notification-item__icon"></span>
     </div>
   </div>
 </template>

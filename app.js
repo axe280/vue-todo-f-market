@@ -25,7 +25,7 @@ app.get('/api/products', (req, res) => {
 // POST
 app.post('/api/products', (req, res) => {
   fs.writeFileSync('db/list.json', JSON.stringify(req.body))
-  res.status(201).send('Success! Your friends can see changes')
+  res.status(201).send('Success! Sent to your friends!')
 })
 
 app.use(express.static(path.resolve(__dirname, 'front/dist')))

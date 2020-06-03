@@ -131,12 +131,12 @@ export default new Vuex.Store({
 
           dispatch('addNotificationTiming', {
             status: 'success',
-            message: 'New item has been created'
+            message: 'Created'
           })
         } else {
           dispatch('addNotificationTiming', {
             status: 'error',
-            message: 'This name alrady exists'
+            message: 'Existing item'
           })
         }
       }

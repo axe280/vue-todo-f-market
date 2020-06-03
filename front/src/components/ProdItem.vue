@@ -17,7 +17,7 @@
       >
       <button
         type="button"
-        class="color_base"
+        class="btn btn_sm"
         @click="updateItemTitle"
       >Ok</button>
     </div>
@@ -112,7 +112,7 @@ export default {
       this.deleteItem(id)
       this.addNotificationTiming({
         status: 'attention',
-        message: 'This product has beed deleted'
+        message: 'Deleted'
       })
     }
   }

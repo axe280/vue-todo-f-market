@@ -10,7 +10,7 @@
       </button>
       <button
         type="button"
-        class="send-button color_base"
+        class="btn btn_lg btn_max"
         @click="sendData"
         :disabled="sending"
       >
@@ -70,7 +70,7 @@ export default {
 
         this.addNotificationTiming({
           status: 'error',
-          message: `Products hasn't been sent`
+          message: 'Error'
         })
 
       }

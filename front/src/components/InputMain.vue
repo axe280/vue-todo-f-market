@@ -10,7 +10,7 @@
     >
     <button
       type="button"
-      class="add-button color_base"
+      class="btn btn_sm"
       @click="checkCreateProduct"
     >Add</button>
   </div>
