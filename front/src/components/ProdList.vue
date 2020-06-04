@@ -58,11 +58,7 @@ export default {
 
   methods: {
     ...mapMutations(['addProducts']),
-    ...mapActions(['addNotificationTiming']),
-
-    test(list) {
-      console.log(list);
-    }
+    ...mapActions(['addNotificationTiming'])
   },
 
   async mounted() {
@@ -70,7 +66,7 @@ export default {
 
     try {
 
-      const data = await fetch('http://localhost:3000/api/products')
+      const data = await fetch('http://192.168.0.101:3000/api/products')
       const prodList = await data.json()
       this.addProducts(prodList)
 

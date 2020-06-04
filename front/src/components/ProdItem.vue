@@ -1,7 +1,6 @@
 <template>
   <li 
     class="prod-item"
-    :class="{checked: item.checked}"
     @click.self="checkItem(item.id)"
   >
     <transition name="slide-width">
@@ -39,6 +38,14 @@
         @click="editItem"
       ></button>
     </div>
+
+    <transition name="checked">
+      <div 
+        v-if="item.checked"
+        class="cat-line"
+        @click.self="checkItem(item.id)"
+      ></div>
+    </transition>
 
     {{ item.title }}
   </li>
