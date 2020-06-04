@@ -1,5 +1,9 @@
 <template>
-  <div class="notifications">
+  <transition-group 
+    tag="div"
+    name="notice"
+    class="notifications"
+  >
     <div
       v-for="item in getNotifications"
       :key="item.id"
@@ -9,7 +13,7 @@
       {{ item.message }}
       <span class="notification-item__icon"></span>
     </div>
-  </div>
+  </transition-group>
 </template>
 
 <script>

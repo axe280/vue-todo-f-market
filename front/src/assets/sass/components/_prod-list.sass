@@ -8,11 +8,13 @@
   padding-left: 60px
 
   .prod-item
-    line-height: 38px
+    padding-top: 4px
+    padding-bottom: 4px
 
 .prod-item
   font-size: 18px
   line-height: 30px
+  padding: 0
   cursor: pointer
   position: relative
 
@@ -62,7 +64,7 @@
 .edit-btns-wrapp
   position: absolute
   left: -60px
-  top: 0
+  top: 4px
   z-index: 4
 
   button
@@ -73,6 +75,7 @@
 
 .edit-field-wrapper
   position: absolute
+  overflow: hidden
   left: 0
   top: -2px
   width: 100%
@@ -91,6 +94,7 @@
     border-radius: 3px
     border: 2px solid rgba(0, 0, 0, 0.2)
     outline: none
+    transition: border-color 0.2s ease
 
     &:focus
       border-color: lighten($interface-color, 20%)

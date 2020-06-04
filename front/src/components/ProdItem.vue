@@ -4,26 +4,28 @@
     :class="{checked: item.checked}"
     @click.self="checkItem(item.id)"
   >
-    <div
-      v-if="isItemEdit"
-      class="edit-field-wrapper"
-    >
-      <input
-        type="text"
-        ref="inputEdit"
-        :value="item.title"
-        @input="inputHandler"
-        @keydown="keydownHandler"
+    <transition name="slide-width">
+      <div
+        v-if="isItemEdit"
+        class="edit-field-wrapper"
       >
-      <button
-        type="button"
-        class="btn btn_sm"
-        @click="updateItemTitle"
-      >Ok</button>
-    </div>
+        <input
+          type="text"
+          ref="inputEdit"
+          :value="item.title"
+          @input="inputHandler"
+          @keydown="keydownHandler"
+        >
+        <button
+          type="button"
+          class="btn btn_sm"
+          @click="updateItemTitle"
+        >Ok</button>
+      </div>
+    </transition>
 
     <div 
-      v-show="isListEdit"
+      v-if="isListEdit"
       class="edit-btns-wrapp"
     >
       <button 

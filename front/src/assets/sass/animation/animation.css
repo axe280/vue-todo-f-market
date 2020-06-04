@@ -1,0 +1,68 @@
+.animated {
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.3s linear
+}
+
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.slide-width-enter-active {
+  transition: width 0.3s ease
+}
+
+.slide-width-enter {
+  width: 80px;
+}
+
+.prod-list,
+.prod-item {
+  transition: padding 0.15s linear
+}
+
+@keyframes slideInDown {
+  from {
+    transform: translate3d(0, -100%, 0);
+    visibility: visible;
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes fadeOutDown {
+  0% {
+      opacity:1
+  }
+
+  to {
+      opacity: 0;
+      transform:translate3d(0, 100%, 0)
+  }
+}
+
+.notice-enter-active {
+  animation-name: slideInDown;
+  animation-duration: 0.25s;
+}
+
+.notice-move {
+  transition: transform 0.25s;
+}
+
+.notice-leave-active {
+  animation-name: fadeOutDown;
+  animation-duration: 0.25s;
+}
+
+.prod-list-enter-active {
+  animation-name: slideInDown;
+  animation-duration: 0.25s;
+}

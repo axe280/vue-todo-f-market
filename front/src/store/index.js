@@ -19,7 +19,7 @@ export default new Vuex.Store({
     isOverlay: state => state.isOverlay,
     isItemTitleChanged: state => state.itemTitleChanged,
     getNotifications: state => state.notifications,
-    getProdLIst: state => state.prodList,
+    getProdList: state => state.prodList,
     getSortProdList(state) {
       return state.prodList.sort((a, b) => {
         return a.checked - b.checked
@@ -117,7 +117,7 @@ export default new Vuex.Store({
       } else {
         dispatch('addNotificationTiming', {
           status: 'error',
-          message: 'This name alrady exists'
+          message: 'Existing item'
         })
       }
     },

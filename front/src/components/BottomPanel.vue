@@ -33,7 +33,7 @@ export default {
   },
 
   computed: {
-    ...mapGetters(['getProdLIst'])
+    ...mapGetters(['getProdList'])
   },
 
   methods: {
@@ -53,7 +53,7 @@ export default {
           headers: {
             'Content-Type': 'application/json;charset=utf-8'
           },
-          body: JSON.stringify(this.getProdLIst)
+          body: JSON.stringify(this.getProdList)
         })
 
         const message = await response.text()

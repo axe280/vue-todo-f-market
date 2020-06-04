@@ -1,8 +1,10 @@
 <template>
-  <div 
-    v-if="isOverlay"
-    class="overlay"
-  ></div>
+  <transition name="fade">
+    <div 
+      v-if="isOverlay"
+      class="overlay"
+    ></div>
+  </transition>
 </template>
 
 <script>

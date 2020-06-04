@@ -2,7 +2,9 @@
   <div class="prod-list-wrapper">
     <loader v-if="loading"></loader>
     
-    <ul 
+    <transition-group
+      tag="ul"
+      name="prod-list"
       class="prod-list"
       :class="{'edit-list-active': isListEdit}"
     >
@@ -11,7 +13,7 @@
         :key="item.id"
         :item="item"
       ></prod-item>
-    </ul>
+    </transition-group>
   </div>
 </template>
 
