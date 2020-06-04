@@ -3,16 +3,16 @@ const path = require('path')
 const fs = require('fs')
 const app = express()
 
-const cors = (req, res, next) => {
+// const cors = (req, res, next) => {
 
-  res.header("Access-Control-Allow-Origin", "*")
-  res.header("Access-Control-Allow-Methods", "GET, PUT, PATCH, POST, DELETE")
-  res.header("Access-Control-Allow-Headers", "Origin, Content-Type")
+//   res.header("Access-Control-Allow-Origin", "*")
+//   res.header("Access-Control-Allow-Methods", "GET, PUT, PATCH, POST, DELETE")
+//   res.header("Access-Control-Allow-Headers", "Origin, Content-Type")
 
-  next()
-}
+//   next()
+// }
 
-app.use(cors)
+// app.use(cors)
 app.use(express.json())
 
 // GET

@@ -75,7 +75,7 @@
 }
 
 .checked-enter-active {
-  transition: width 0.4s ease-in;
+  transition: width 0.2s ease-in;
 }
 
 .checked-enter {

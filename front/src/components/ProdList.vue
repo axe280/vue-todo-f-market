@@ -66,7 +66,7 @@ export default {
 
     try {
 
-      const data = await fetch('http://192.168.0.101:3000/api/products')
+      const data = await fetch('/api/products')
       const prodList = await data.json()
       this.addProducts(prodList)
 
