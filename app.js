@@ -34,4 +34,4 @@ app.get('*', (req, res) => {
   res.sendFile(path.resolve(__dirname, 'front/dist', 'index.html'))
 })
 
-app.listen(3000, () => console.log('server has been started..'))
+app.listen(8080, () => console.log('server has been started..'))
