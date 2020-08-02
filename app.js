@@ -19,7 +19,6 @@ app.use(express.json())
 app.get('/api/products', (req, res) => {
   fs.readFile(
     'db/list.json',
-    {flag: 'rs+'},
     (err, data) => {
       const dataList = JSON.parse(data)
       res.status(200).json(dataList)
@@ -32,7 +31,6 @@ app.post('/api/products', (req, res) => {
   fs.writeFile(
     'db/list.json',
     JSON.stringify(req.body),
-    {flag: 'rs+'},
     (err) => {
       res.status(201).send('Success! Sent to your friends!')
     }
