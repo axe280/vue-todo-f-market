@@ -17,14 +17,14 @@ app.use(express.json())
 
 // GET
 app.get('/api/products', (req, res) => {
-  const data = fs.readFileSync('db/list.json', 'rs+')
+  const data = fs.readFileSync('db/list.json', {'flag': 'rs+'})
   const dataList = JSON.parse(data)
   res.status(200).json(dataList)
 })
 
 // POST
 app.post('/api/products', (req, res) => {
-  fs.writeFileSync('db/list.json', JSON.stringify(req.body))
+  fs.writeFileSync('db/list.json', JSON.stringify(req.body), {'flag': 'rs+'})
   res.status(201).send('Success! Sent to your friends!')
 })
 
