@@ -17,7 +17,7 @@ app.use(express.json())
 
 // GET
 app.get('/api/products', (req, res) => {
-  const data = fs.readFileSync('db/list.json', {"flag": 'rs'})
+  const data = fs.readFileSync('db/list.json', 'rs+')
   const dataList = JSON.parse(data)
   res.status(200).json(dataList)
 })
