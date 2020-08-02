@@ -17,15 +17,26 @@ app.use(express.json())
 
 // GET
 app.get('/api/products', (req, res) => {
-  const data = fs.readFileSync('db/list.json', {'flag': 'rs+'})
-  const dataList = JSON.parse(data)
-  res.status(200).json(dataList)
+  fs.readFile(
+    'db/list.json',
+    {flag: 'rs+'},
+    (err, data) => {
+      const dataList = JSON.parse(data)
+      res.status(200).json(dataList)
+    }
+  )
 })
 
 // POST
 app.post('/api/products', (req, res) => {
-  fs.writeFileSync('db/list.json', JSON.stringify(req.body), {'flag': 'rs+'})
-  res.status(201).send('Success! Sent to your friends!')
+  fs.writeFile(
+    'db/list.json',
+    JSON.stringify(req.body),
+    {flag: 'rs+'},
+    (err) => {
+      res.status(201).send('Success! Sent to your friends!')
+    }
+  )
 })
 
 app.use(express.static(path.resolve(__dirname, 'front/dist')))
