@@ -18,7 +18,7 @@ app.use(express.json())
 // GET
 app.get('/api/products', (req, res) => {
   fs.readFile(
-    'db/list.json',
+    path.join(__dirname, 'db/list.json'),
     (err, data) => {
       const dataList = JSON.parse(data)
       res.status(200).json(dataList)
@@ -29,7 +29,7 @@ app.get('/api/products', (req, res) => {
 // POST
 app.post('/api/products', (req, res) => {
   fs.writeFile(
-    'db/list.json',
+    path.join(__dirname, 'db/list.json'),
     JSON.stringify(req.body),
     (err) => {
       res.status(201).send('Success! Sent to your friends!')
